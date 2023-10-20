@@ -1,0 +1,28 @@
+### GET request for all messages
+
+GET http://localhost:8080/api/messages
+Accept: application/json
+
+### POST request to create a new message
+
+POST http://localhost:8080/api/messages
+Content-Type: application/json
+
+{
+  "message": "Hello World!",
+  "userName": "John Doe"
+}
+
+> {%
+    client.global.set("id", response.body.id);
+%}
+
+### GET request for the message that was created before
+
+GET http://localhost:8080/api/messages/{{id}}
+Accept: application/json
+
+### DELETE request to delete the message that was created before
+
+DELETE http://localhost:8080/api/messages/{{id}}
+Accept: application/json
